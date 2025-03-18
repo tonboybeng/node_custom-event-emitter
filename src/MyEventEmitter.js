@@ -139,8 +139,6 @@ class MyEventEmitter {
 
       if (event) {
         event.callbacks = [];
-
-        this.events = this.events.filter((el) => el !== event);
       }
     } else {
       this.events = [];
