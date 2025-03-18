@@ -134,10 +134,16 @@ class MyEventEmitter {
   }
 
   removeAllListeners(eventName) {
-    const event = this.events.find((el) => el.eventName === eventName);
+    if (eventName) {
+      const event = this.events.find((el) => el.eventName === eventName);
 
-    if (event) {
-      event.callbacks = [];
+      if (event) {
+        event.callbacks = [];
+
+        this.events = this.events.filter((el) => el !== event);
+      }
+    } else {
+      this.events = [];
     }
   }
 
